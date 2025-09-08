@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #dfd7acff;
+    }
+
+    .hero {
+      background: url('your-background-image.jpg') center/cover no-repeat;
+      padding: 120px 20px;
+      text-align: center;
+      color: #e2d2a5ff;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+     .hero h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      animation-delay: 0.3s;
+     }
+
+    .hero h2, .hero p {
+      opacity: 0;
+      transform: translateY(-40px); /* start from top */
+      animation: slideDown 1s ease forwards;
+    }
+
+    .hero h2 {
+      font-size: 35px;
+      margin-bottom: 15px;
+      animation-delay: 0.3s;
+    }
+
+    .hero p {
+      font-size: 40px;
+      animation-delay: 0.1m;
+    }
+
+    @keyframes slideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<title>Ajab Gajab</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Login Popup -->
+<div class="popup-overlay" id="loginPopup">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup('loginPopup')">✖</span>
+    <h2 class="logintitle">Login</h2>
+    <form>
+       <label for="email" class="email">Email:</label><br>
+      <input type="email" placeholder="Enter Email" required><br><br>
+      <label for="password" class="password">Password:</label><br>
+      <input type="password" placeholder="Enter Password" required><br>
+      
+      <div class="forgot-password">
+        <a href="#" onclick="openPopup('forgotPasswordPopup')">Forgot Password?</a>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="login-btn">Sign In</button>
+        <button type="button" class="signup-btn" onclick="openPopup('signupPopup')">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Sign Up Popup -->
+<div class="popup-overlay" id="signupPopup" style="display: none;">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup('signupPopup')">✖</span>
+    <h2 class="signuptitle">Sign Up</h2>
+    <form>
+      <label class="">Full Name:</label>
+      <input type="text" placeholder="Full Name" required><br><br>
+      <label>Email</label>
+      <input type="email" placeholder="Email" required><br><br>
+      <label>Password:</label>
+      <input type="password" placeholder="Password" required><br><br>
+      <label>Confirm Password:</label>
+      <input type="password" placeholder="Confirm Password" required><br><br>
+      <label>Phone Number:</label>
+      <input type="tel" placeholder="Phone Number" required><br><br>
+      
+      <!-- Gender Row -->
+<div class="form-row">
+  <label for="gender">Gender:</label>
+  <select id="gender" required>
+    <option value="" disabled selected>Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+      
+      <input type="date" placeholder="Date of Birth" required><br><br>
+
+      <div class="button-group" style="justify-content: center;">
+        <button type="button" class="login-btn" onclick="openPopup('loginPopup')">
+          Back to Login
+        </button>
+        <button type="submit" class="signup-btn">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Forgot Password Popup -->
+<div class="popup-overlay" id="forgotPasswordPopup" style="display: none;">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup('forgotPasswordPopup')">✖</span>
+    <h2>Forgot Password</h2>
+    <form onsubmit="event.preventDefault(); sendResetLink();">
+      <input type="email" id="resetEmail" placeholder="Enter your registered email" required><br><br>
+      <div class="button-group" style="justify-content: center;">
+        <button type="button" class="login-btn" onclick="openPopup('loginPopup')">Back to Login</button>
+        <button type="submit" class="signup-btn">Send Reset Link</button>
+      </div>
+      <p id="resetMessage" style="text-align:center; margin-top: 10px;"></p>
+    </form>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="logo">Ajab Gajab</h1>
+      <nav>
+        <ul>
+          <li><a href="#Company">Company</a></li>
+          <li><a href="#Our-Girls-variety">Our Girls variety</a></li>
+          <li><a href="#Owners Details">Owners Details</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to Ajab Gajab</h1><br><br>
+      <h2>"All type of variety available for...</h2>
+      <h2>Jwelery at ₹10 to ₹20</h2>
+      <h2>Shopiece at ₹50 to ₹99</h2>
+      <h2>Fashion at ₹299 and ₹399"</h2><br><br>
+      <h2>Sale...Sale...Sale...</h2><br>
+      <p>This are our product.. Jwelery,Shopiece,Fashion</p>
+      <p>Visit our shop</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="Company" class="about">
+  <div class="container">
+    <h2>Company (Discription)</h2>
+    <p>
+     At My Company, we believe that jewelry is not just an accessory – it’s a reflection of your story, your elegance, and your emotions. Established with a passion for timeless beauty and intricate craftsmanship, we bring to you exquisite jewelry pieces that blend tradition with modernity.
+
+Every piece in our collection is carefully handcrafted using the finest materials, ensuring quality, uniqueness, and lasting value. Whether it’s a traditional design that echoes cultural heritage or a contemporary style that matches your modern spirit, we have something special for everyone.
+
+Our mission is to make every customer feel valued, beautiful, and confident. With a deep-rooted commitment to authenticity and customer satisfaction, Mari Company continues to shine in the world of jewelry.
+    </p>
+    <p>
+      Whether you're a startup or an established brand, we bring creativity, technology, and strategy together 
+      to help you grow. Your success is our priority.
+    </p>
+    <p>
+      <em>“તમારો વિશ્વાસ,અમારી જવાબદારી”</em>
+    </p>
+  </div>
+</section>
+
+
+  <!-- Services -->
+  <section id="Our-Girls-variety" class="services">
+    <div class="container">
+      <h2>Our Girls/Boys variety</h2>
+      <div class="service-box">
+        <div>
+          <h3>Jewellery</h3>
+          <p>"My jewellery is updated daily with uniquely developed designs and styles."</p>
+          <h4>Jewellery Types(Visit):</h4>
+          <ul>
+          <li><a style="color: rgb(218, 187, 87); text-decoration:none;" embed href="girls cosmetic.pdf-1 (1).pdf" type="applicatiob/pdf" widht="100%" height="600px" title="Ajab Gajab" target="_blank">Girls Cosmetic(છોકરીઓના સૌંદર્ય સાધનો).pdf(1)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" embed href="Earing2.pdf" type="applicatiob/pdf" widht="100%" height="600px" title="Embedded PDF Document" target="_blank">Earings(કર્ણફૂલી).pdf(2)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="payal.pdf" target="_blank">Anklet(પાયલ).pdf(3)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Breslate4.pdf" target="_blank">Bracelet(બાંગડી/હાથકડી).pdf(4)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="fingerring.pdf" target="_blank">Ring(અંગુઠી).pdf(5)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Necklace.pdf" target="_blank">Nackless(હાર).pdf(6)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Hair Pin.pdf" target="_blank">Hair Pin(વાલકંસી / વાળની પિન).pdf(7)</a></li>
+        </div>
+        </ul>
+        <div>
+          <h3>Shopiece</h3>
+          <p>"We offer beautifully designed showpieces that add a unique charm to your space."</p>
+        <h4>Shopiece Types(Visit):</h4>
+             <ul>
+          <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="girls cosmetic.pdf-1.pdf" target="_blank">Night Lamp(છોકરીઓના સૌંદર્ય સાધનો).pdf(1)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Earing2.pdf" target="_blank">Flowers(કર્ણફૂલી).pdf(2)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="payal.pdf" target="_blank">image of God(પાયલ).pdf(3)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Breslate4.pdf" target="_blank">Decoration of Celebration(બાંગડી/હાથકડી).pdf(4)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="fingerring.pdf" target="_blank">Kids of Ramkada(અંગુઠી).pdf(5)</a></li>
+        </div>
+        </ul>
+        <div>
+          <h3>Fashion</h3>
+          <p>"Redefining everyday elegance with fashion that speaks your style."</p>
+          <h4>Fashion Types(Visit):</h4>
+          <ul>
+          <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="girls cosmetic.pdf-1.pdf" target="_blank">Girls Cosmetic(છોકરીઓના સૌંદર્ય સાધનો).pdf(1)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Earing2.pdf" target="_blank">Earings(કર્ણફૂલી).pdf(2)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="payal.pdf" target="_blank">Anklet(પાયલ).pdf(3)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="Breslate4.pdf" target="_blank">Bracelet(બાંગડી/હાથકડી).pdf(4)</a></li>
+        <li><a style="color: rgb(218, 187, 87); text-decoration:none;" href="fingerring.pdf" target="_blank">Ring(અંગુઠી).pdf(5)</a></li>
+        </div>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+ <!-- Services -->
+  <section id="Owners Details" class="services">
+    <div class="container">
+      <h2>Owner Details</h2>
+      <h2>Owners Name: Mr.Kavad Uday</h2>
+      <div class="service-box">
+        <div>
+          <h3>Owners Personality</h3>
+          <p>"The owner's unique personality and strong vision are clearly reflected in the business."</p>
+          <h4>Business Types:</h4>
+          <ul>
+          <li>Wholesaler</li>
+          <li>Co-commerce</li>
+          <li>E-commerce</li>
+          <li>Retail Business</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company logo</h3>
+          <p>"The logo is a visual symbol of our values, vision, and mission."</p>
+          <img src="logo.jpeg" alt="Company Logo" width="150">
+        </div>
+        <div>
+          <h3>Company Details</h3>
+          <p>"Share your valuable feedback and help us improve by reviewing your experience with our product."</p>
+          <p>Visit us: <a style="color: rgb(218, 187, 87)" href="https://www.google.com/maps/place/Ajab+Gajab+Store/@21.2049615,72.8728882,14z/data=!4m6!3m5!1s0x3be04f53766d22a9:0x37bb4a27c61f30c9!8m2!3d21.1989318!4d72.8642322!16s%2Fg%2F11xvfr42pm?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Click here to our Company information</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-box">
+      <div>
+      <p>Whatsapp Number: <a href="https://wa.me/message/VFKYJ6JQZZ22I1">Whatsapp.com</a></p>
+      <p>Contact Number <a href="tel:6352714516">6352714516</a></p>
+      <p>For Out of stock: "This item is currently out of stock. Our team is working to make it available as soon as possible."</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>R-E-T-A-I-L-E-R; 2025,"When I started my company, I made a firm commitment to become the best in the market by providing customers with quality service and innovative solutions."</p>
+    </div>
+  </footer>
+</body>
+<script>
+// Show login popup on page load
+window.onload = function () {
+  document.getElementById("loginPopup").style.display = "flex";
+}
+
+// Open specific popup (login or signup)
+function openPopup(id) {
+  document.getElementById('loginPopup').style.display = 'none';
+  document.getElementById('signupPopup').style.display = 'none';
+  document.getElementById(id).style.display = 'flex';
+}
+
+// Close specific popup
+function closePopup(id) {
+  document.getElementById(id).style.display = 'none';
+}
+// 🆕 Forgot Password logic
+function sendResetLink() {
+  const email = document.getElementById("resetEmail").value;
+  const messageDiv = document.getElementById("resetMessage");
+
+  if (!email || !email.includes('@')) {
+    messageDiv.textContent = "Please enter a valid email address.";
+    messageDiv.style.color = "red";
+    return;
+  }
+
+  messageDiv.textContent = "Sending reset link...";
+  messageDiv.style.color = "black";
+
+  // Simulate email sending
+  setTimeout(() => {
+    messageDiv.textContent = `Reset link sent to ${email}`;
+    messageDiv.style.color = "green";
+  }, 1500);
+}
+</script>
+</html>
